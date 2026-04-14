@@ -7,7 +7,7 @@
                <a href= "ex4.php "> Exercicio 4</a>
 
         </nav>
-        <h2>Verificar Triângulo</h2>
+        <h2>Classificar por Ângulo</h2>
 
 <form method="post">
             <label for="">Digite o numero</label><br><br>
@@ -24,14 +24,19 @@
 </form> 
 <?php
 if($_POST){
-$numero1 = $_POST['num1'];
-$numero2 = $_POST['num2'];
-$numero3 = $_POST['num3'];
+$num1 = $_POST['num1'];
+$num2 = $_POST['num2'];
+$num3 = $_POST['num3'];
+    
+    $lados = [$num1, $num2, $num3];
+    rsort($lados);
 
-if ($num1 + $num2 +$numero3 && $num1 + $num3 +$num2 && $num2 + $num3 +$num1){
-echo "Forma um Triângulo";
+if ($num1*$num1 == $num2*$num2 + $num3*$num3){
+echo "Triângulo Retângulo";
 }else{
-    echo "Não forma um Triângulo";
+    echo "Triângulo Obtusângulo";
+}else{  
+    echo "Triângulo Acultângulo";
 }}
 ?>
   </div>
