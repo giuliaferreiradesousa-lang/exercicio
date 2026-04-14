@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="style.css">
     <div class="box">
-        <h2>Verificar Triângulo</h2>
+        <h2>Classificação Completa</h2>
   <nav>
             <a href= "ex1.php "> Exercicio 1</a>
              <a href= "ex2.php "> Exercicio 2</a>
@@ -27,10 +27,29 @@ $numero1 = $_POST['numero1'];
 $numero2 = $_POST['numero2'];
 $numero3 = $_POST['numero3'];
 
-if ($numero1 + $numero2 +$numero3 && $numero1 + $numero3 +$numero2 && $numero2 + $numero3 +$numero1){
-echo "Forma um Triângulo";
-}else{
-    echo "Não forma um Triângulo";
+if ($numero1 <= 0 || $numero2 <= 0 || $numero3 <= 0) {
+    echo "Erro: valores negativos ou zero";
+    exit;
+}
+
+if (!($numero1 + $numero2 > $numero3 && $numero1 + $numero3 > $numero2 && $numero2 + $numero3 > $numero1)) {
+    echo "Erro: lados inválidos";
+    exit;
+}
+
+    
+    
+
+if ($numero1*$numero1 == $numero2*$numero2 + $numero3*$numro3) {
+    $tipoAngulo = "Retângulo";
+} elseif ($numero1*$numero2 > $numero2*$numero2 + $numero3*$numero3) {
+    $tipoAngulo = "Obtusângulo";
+} else {
+    $tipoAngulo = "Acutângulo";
+}
+
+echo "Triângulo válido<br>";
+echo "Classificação: $tipoLado e $tipoAngulo";
 }}
 ?>
   </div>
